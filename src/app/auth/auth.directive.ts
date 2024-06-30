@@ -14,9 +14,10 @@ private viewContainerRef = inject(ViewContainerRef)
   constructor() {
     effect(()=>{
       if(this.authService.activePermission() === this.user()){
+        this.viewContainerRef.createEmbeddedView(this.tempelateRef)
         console.log("SHOW")
       }else{
-        console.log("DOnt SHOW")
+       this.viewContainerRef.clear()
       }
     })
    }
